@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <meta charset="UTF-8">
+	    <meta name="author" content="github/selm4nkon">
+		
+	    <title>PoC Generator 26</title>
+
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link href="css/style.css"         rel="stylesheet">
+		
+	    <script type="text/javascript" src="js/clipboard.js"></script>
+	
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</head>
+  	<body>
+	  	<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="fig ">
+	    .d8888b.   .d8888b.  8888888b.  8888888888      8888888b.           .d8888b.                
+           d88P  Y88b d88P  Y88b 888   Y88b 888             888   Y88b         d88P  Y88b               
+           888    888 Y88b.      888    888 888             888    888         888    888               
+           888         "Y888b.   888   d88P 8888888         888   d88P .d88b.  888                      
+           888            "Y88b. 8888888P"  888             8888888P" d88""88b 888                      
+           888    888       "888 888 T88b   888             888       888  888 888    888               
+           Y88b  d88P Y88b  d88P 888  T88b  888             888       Y88..88P Y88b  d88P               
+ .d8888b.   "Y8888P"   "Y8888P"  888   T88b 888       888   888        "Y88P"   "Y8.d8888b.   .d8888b.  
+d88P  Y88b                                            888                         d88P  Y88b d88P  Y88b 
+888    888                                            888                                888 888        
+888         .d88b.  88888b.   .d88b.  888d888 8888b.  888888 .d88b.  888d888           .d88P 888d888b.  
+888  88888 d8P  Y8b 888 "88b d8P  Y8b 888P"      "88b 888   d88""88b 888P"         .od888P"  888P "Y88b 
+888    888 88888888 888  888 88888888 888    .d888888 888   888  888 888          d88P"      888    888 
+Y88b  d88P Y8b.     888  888 Y8b.     888    888  888 Y88b. Y88..88P 888          888"       Y88b  d88P 
+ "Y8888P88  "Y8888  888  888  "Y8888  888    "Y888888  "Y888 "Y88P"  888          888888888   "Y8888P" </p>																									  
+					
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div class="panel panel-dark">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<button type="button" class="btn btn-primary btn-outline" id="changeRequestMethod">Change request method</button>
+								<button type="button" style="float: right;" class="btn btn-primary btn-outline" id="pasteButton" onclick="pasteFromClipboard()">Paste from Clipboard</button>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<textarea id="request" spellcheck="false">POST /password/change HTTP/1.1
+Host: vulnerable-website.com
+Cookie: session=drthwsztyeQkAWreQ5gHgTvlyxHfsERE
+Content-Length: 75
+Content-Type: application/x-www-form-urlencoded
+
+username=selm4nkon&new_password=omgahittweet&password_confirmation=noitsnot
+
+</textarea>
+						</div>
+						<div class="panel-footer">									
+							<label class="checkbox-inline">
+								<input checked type="checkbox" id="https">HTTPS
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="autoSubmit">Include Auto-Submit
+							</label>
+							<label class="checkbox-inline">
+								<input type="checkbox" id="crossDomain">Cross-domain XHR
+							</label>
+							<button class="float-right btn btn-primary btn-outline" id="generate" >Generate</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="panel panel-dark">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<button type="button" class="btn btn-primary btn-outline copied-animation" id="copyButton" onclick="copyToClipboard()">Copy to Clipboard</button>
+
+								<input class="form-control" id="pushStatePath" spellcheck="false" placeholder="history.pushState path (default: /)">	
+							</h3>
+						</div>
+						<div class="panel-body">
+							<textarea id="generatedForm" spellcheck="false"></textarea>
+						</div>
+						<div class="panel-footer">
+							<button type="button" class="btn btn-primary btn-outline" id="downloadButton">Download</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/generate.js"></script>
+	    <script type="text/javascript" src="js/changeRequestMethod.js"></script>
+		<script type="text/javascript" src="js/downloadFile.js"></script>
+  	</body>
+</html>
