@@ -21,7 +21,7 @@
 - Paste a request from clipboard
 - Copy generated form to clipboard
 - HTTPS/HTTP selection
-- Include Auto-Submit.
+- Include Auto-Submit
 - Cross-domain XHR
 - Change request method
 	- Content-Length is calculated
